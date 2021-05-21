@@ -1,10 +1,10 @@
 input.onButtonPressed(Button.A, function () {
-    if ("Ballistic" == Modes[Mode]) {
+    if ("B" == Modes[Mode]) {
         power += 1
         if (power > 3) {
             power = 0
         }
-        basic.showString("P = " + convertToText(power))
+        basic.showString(convertToText(power))
     }
 })
 function doBall () {
@@ -25,10 +25,10 @@ input.onButtonPressed(Button.AB, function () {
     basic.showString("" + (Modes[Mode]))
 })
 input.onButtonPressed(Button.B, function () {
-    if ("Launch" == Modes[Mode]) {
+    if ("L" == Modes[Mode]) {
         DoLaunch()
     }
-    if ("Ballistic" == Modes[Mode]) {
+    if ("B" == Modes[Mode]) {
         doBall()
     }
 })
@@ -70,7 +70,7 @@ let power = 0
 let Modes: string[] = []
 let Mode = 0
 Mode = 0
-Modes = ["Launch", "Design", "Test", "Ballistic"]
+Modes = ["L", "D", "T", "B"]
 basic.showLeds(`
     . . . . .
     . . # . .
