@@ -16,6 +16,8 @@ input.onButtonPressed(Button.A, function () {
     if ("T" == Modes[Mode]) {
         basic.showString("FPS")
         basic.showString("" + (doVel()))
+        basic.showString("BO")
+        basic.showString("" + (doBurnout()))
     }
 })
 function doVel () {
@@ -65,6 +67,9 @@ input.onButtonPressed(Button.B, function () {
         }
     }
 })
+function doBurnout () {
+    return Time * (doVel() / 2)
+}
 function DoLaunch () {
     basic.showLeds(`
         . . . . .
