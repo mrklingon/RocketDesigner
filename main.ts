@@ -1,5 +1,5 @@
 function Coast () {
-    return doVel() * doVel() / 64.4
+    return Math.round(doVel() * doVel() / 64.4)
 }
 input.onButtonPressed(Button.A, function () {
     if ("B" == Modes[Mode]) {
@@ -18,7 +18,7 @@ input.onButtonPressed(Button.A, function () {
     }
     if ("T" == Modes[Mode]) {
         basic.showString("FPS")
-        basic.showString("" + (doVel()))
+        basic.showString("" + (Math.round(doVel())))
         basic.showString("BO")
         basic.showString("" + (doBurnout()))
     }
@@ -74,8 +74,16 @@ input.onButtonPressed(Button.B, function () {
         }
     }
 })
+input.onGesture(Gesture.Shake, function () {
+    if ("D" == Modes[Mode] || "T" == Modes[Mode]) {
+        basic.showString("Force")
+        basic.showNumber(Force)
+        basic.showString("Time")
+        basic.showNumber(Time)
+    }
+})
 function doBurnout () {
-    return Time * (doVel() / 2)
+    return Math.round(Time * (doVel() / 2))
 }
 function DoLaunch () {
     basic.showLeds(`
