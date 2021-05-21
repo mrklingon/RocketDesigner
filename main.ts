@@ -1,3 +1,6 @@
+function Coast () {
+    return doVel() * doVel() / 64.4
+}
 input.onButtonPressed(Button.A, function () {
     if ("B" == Modes[Mode]) {
         power += 1
@@ -49,6 +52,10 @@ input.onButtonPressed(Button.B, function () {
     }
     if ("B" == Modes[Mode]) {
         doBall()
+    }
+    if ("T" == Modes[Mode]) {
+        basic.showString("Coast")
+        basic.showString("" + (Coast()))
     }
     if ("D" == Modes[Mode]) {
         if ("F" == Dmodes[Dmode]) {
