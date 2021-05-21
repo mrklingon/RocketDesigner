@@ -1,5 +1,9 @@
 input.onButtonPressed(Button.AB, function () {
-    DoLaunch()
+    Mode += 1
+    if (Mode > 2) {
+        Mode = 0
+    }
+    basic.showString("" + (Modes[Mode]))
 })
 function DoLaunch () {
     basic.showLeds(`
@@ -34,6 +38,10 @@ function DoLaunch () {
         . . . . .
         `)
 }
+let Modes: string[] = []
+let Mode = 0
+Mode = 0
+Modes = ["Launch", "Design", "Test"]
 basic.showLeds(`
     . . . . .
     . . # . .
