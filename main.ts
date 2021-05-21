@@ -8,10 +8,13 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 function doBall () {
+    Stp = 0.5
     rocket = game.createSprite(0, 3)
-    rocket.turn(Direction.Left, 45)
+    rocket.turn(Direction.Left, 37)
     for (let index = 0; index < power * 3; index++) {
-        rocket.move(0.5)
+        rocket.turn(Direction.Right, 15)
+        rocket.move(Stp)
+        Stp += 0.05
         basic.pause(200)
     }
     basic.pause(500)
@@ -66,6 +69,7 @@ function DoLaunch () {
         `)
 }
 let rocket: game.LedSprite = null
+let Stp = 0
 let power = 0
 let Modes: string[] = []
 let Mode = 0
